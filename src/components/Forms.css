@@ -67,11 +67,10 @@
             &>input {
                 width: 80%;
                 height: 1.5rem;
-                /* border: none; */
                 border-radius: 5px;
                 padding: 5px;
                 font-size: medium;
-                /* background-color: #f0f0f0; */
+                background: transparent;
             }
 
             &>select {
@@ -95,7 +94,9 @@
                 cursor: pointer;
             }
 
-
+            &>button {
+                background-color: #f0f0f0
+            }
 
         }
     }
