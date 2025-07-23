@@ -24,7 +24,8 @@
 
 .main-section {
     width: 100%;
-    height: max-content;
+    min-height: 100vh;
+    max-height: max-content;
     background-color: #f0f6ff;
     background: linear-gradient(169deg, #ffffff 0%, #8dc0d7 80%);
     display: flex;
