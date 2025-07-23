@@ -1,6 +1,6 @@
 # 🧠 Agent Intelligent N8N Forms
 
-Projeto desenvolvido com **React + Vite** para a captura de dados de um formulário, dos quais vão ser tratdos por um agente inteligente  **n8n**.
+Projeto desenvolvido com **React + Vite** para a captura de dados de um formulário, dos quais vão ser tratdos por um agente inteligente desenvolvido e integrado com **n8n**.
 
 ---
 
