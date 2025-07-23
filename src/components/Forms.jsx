@@ -1,6 +1,7 @@
 import './Forms.css'
-
+import axios from 'axios'
 import { useForm } from "react-hook-form"
+import { useState } from 'react'
 
 const Forms = () => {
 
@@ -10,7 +11,33 @@ const Forms = () => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data, event) => { console.log(data); event.preventDefault(); };
+    const [cargoPrevisto, setCargoPrevisto] = useState(null);
+
+    const onSubmit = async (data) => {
+        try {
+            const payload = {
+                idade: data.idade,
+                genero: data.genero,
+                etnia: data.etnia,
+                pcd: data.pcd,
+                vive_no_brasil: data.viveBrasil,
+                estado_moradia: data.estadoMoradia,
+                nivel_ensino: data.nivelEnsino,
+                formacao: data.formacao,
+                tempo_experiencia_dados: data.experienciaDados,
+                linguagens_Preferidas: data.linguagensPreferidas,
+                bancos_de_dados: data.bancoDados,
+                cloud_preferida: data.cloudPreferida
+            };
+
+            const response = await axios.post('https://NOSSO_WEBHOOK_N8N.com', payload);
+            setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
+        } catch (error) {
+            console.error('Erro ao enviar os dados', error);
+            alert('Erro ao prever o cargo. Verifique o console.')
+        }
+    };
+
 
     return (
         <>
@@ -32,15 +59,15 @@ const Forms = () => {
                             className={errors?.idade && "input-error"}
                             type="number"
                             name="idade"
-                            min = "16"
+                            min="16"
                             max="90"
                             placeholder="Digite sua idade"
-                            {...register("idade", { required: true, min:16, max:90 })}
+                            {...register("idade", { required: true, min: 16, max: 90 })}
 
                         />
                         {errors?.idade?.type === "required" && (<p className='error-message'>Campo obrigatório</p>) ||
-                        errors?.idade?.type==="min" && (<p className='error-message'>A idade minima é 16 anos</p>)  ||
-                        errors?.idade?.type==="max" && (<p className='error-message'>A idade máxima é 90 anos</p>)
+                            errors?.idade?.type === "min" && (<p className='error-message'>A idade minima é 16 anos</p>) ||
+                            errors?.idade?.type === "max" && (<p className='error-message'>A idade máxima é 90 anos</p>)
                         }
                         <br />
 
@@ -59,7 +86,7 @@ const Forms = () => {
                             className={errors?.etnia && "input-error"}
                             type="text"
                             name="etnia"
-                            {...register("etnia", { required: true})}
+                            {...register("etnia", { required: true })}
                         />
                         {errors?.etnia?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
                         <br />
@@ -119,11 +146,11 @@ const Forms = () => {
                             min={0}
                             max={100}
                             name="tempo_experiencia_dados"
-                            {...register("experienciaDados", { required: true,min:0, max:100 })}
+                            {...register("experienciaDados", { required: true, min: 0, max: 100 })}
                         />
                         {errors?.experienciaDados?.type === "required" && (<p className='error-message'>Campo obrigatório</p>) ||
-                        errors?.experienciaDados?.type === "min" && (<p className='error-message'>o tempo de experiencia deve ser no mínimo 0</p>) ||
-                        errors?.experienciaDados?.type === "max" && (<p className='error-message'>Tempo de experiência fora da faixa esperada</p>)
+                            errors?.experienciaDados?.type === "min" && (<p className='error-message'>o tempo de experiencia deve ser no mínimo 0</p>) ||
+                            errors?.experienciaDados?.type === "max" && (<p className='error-message'>Tempo de experiência fora da faixa esperada</p>)
                         }
                         <br />
 
@@ -158,8 +185,15 @@ const Forms = () => {
                         {errors?.cloudPreferida?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
                         <br />
 
-                        <button type="" onClick={() => handleSubmit(onSubmit)()}>Enviar</button>
+                        <button type="button" onClick={() => handleSubmit(onSubmit)()}>Enviar</button>
                     </form>
+
+                    {cargoPrevisto && (
+                        <div className="resultado">
+                            <h3>Cargo previsto:</h3>
+                            <p>{cargoPrevisto}</p>
+                        </div>
+                    )}
                 </div>
 
             </section>
