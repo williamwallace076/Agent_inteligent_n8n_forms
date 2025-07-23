@@ -51,9 +51,16 @@ npm run dev
 - Certifique-se de ter o **n8n** configurado e em execução, caso sua aplicação dependa da comunicação direta com ele.
 - Recomendado utilizar o navegador Google Chrome ou Firefox para melhor compatibilidade com ferramentas de desenvolvimento.
 
-### 📃 Licença
+## 📃 Licença
 
-Este projeto está sob a licença [MIT](https://choosealicense.com/licenses/mit/).
+Este projeto está licenciado sob uma Licença Personalizada de Uso Acadêmico e Não Comercial.
+
+Você pode usar, modificar e distribuir este código apenas para fins **acadêmicos, educacionais e não comerciais**.
+
+Para usos comerciais, entre em contato com o autor.
+
+Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
 
 ---
 
@@ -104,6 +111,13 @@ npm run dev
 - Make sure **n8n** is set up and running if your application relies on it.
 - It's recommended to use Google Chrome or Firefox for better development tooling support.
 
-### 📃 License
+## 📃 License
 
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+This project is licensed under a Custom Academic Non-Commercial License.
+
+You may use, modify, and distribute this code for **academic, educational, and non-commercial purposes only**.
+
+For commercial use, please contact the author.
+
+See [LICENSE](./LICENSE) for full details.
+
