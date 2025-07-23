@@ -17,7 +17,7 @@ const Forms = () => {
             <section className='header-section'>
 
                 <div className='title-area'>
-                    <h1 >Formulário Para Agente Inteligente</h1>
+                    <h1 >Descubra qual cargo combina melhor com você !</h1>
 
                 </div>
 
@@ -116,10 +116,15 @@ const Forms = () => {
                         <input
                             className={errors?.experienciaDados && "input-error"}
                             type="number"
+                            min={0}
+                            max={100}
                             name="tempo_experiencia_dados"
-                            {...register("experienciaDados", { required: true })}
+                            {...register("experienciaDados", { required: true,min:0, max:100 })}
                         />
-                        {errors?.experienciaDados?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
+                        {errors?.experienciaDados?.type === "required" && (<p className='error-message'>Campo obrigatório</p>) ||
+                        errors?.experienciaDados?.type === "min" && (<p className='error-message'>o tempo de experiencia deve ser no mínimo 0</p>) ||
+                        errors?.experienciaDados?.type === "max" && (<p className='error-message'>Tempo de experiência fora da faixa esperada</p>)
+                        }
                         <br />
 
                         <label>Linguagens Preferidas (ex: Python, R):</label>
