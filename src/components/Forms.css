@@ -19,7 +19,7 @@
         justify-content: center;
         text-align: center;
 
-        &>h1{
+        &>h1 {
             color: #000000;
             font-family: "Kanit", sans-serif;
             text-shadow: 1.5px 1.5px #ffffff;
@@ -107,18 +107,41 @@
         }
 
 
-        .error-message{
+        .error-message {
             color: red;
             font-size: 0.7rem;
             padding-left: 0.3rem;
         }
 
-        .input-error{
+        .input-error {
             border: 1px solid #ff0000;
         }
     }
 
 }
+
+@media (max-width: 426px) {
+    .header-section {
+        .title-area {
+            width: 90%;
+        }
+    }
+
+    .main-section {
+        padding: 2rem 0;
+
+        .form-area {
+            width: 90%;
+
+            #form-predicao{
+                &>button{
+                    align-self: center;
+                }
+            }
+        }
+    }
+}
+
 
 
 .footer-section {
