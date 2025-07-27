@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 const Forms = () => {
 
-    let testeDeCargo = "Engenheiro De Software"
     const {
         register,
         handleSubmit,
@@ -189,13 +188,9 @@ const Forms = () => {
                         <button type="button" onClick={() => handleSubmit(onSubmit)()}>Enviar</button>
                     </form>
 
-                    <div className="resultado">
-                            <h3>Você tem uma grande vocação para atuar no cargo de : {testeDeCargo} ! </h3>
-                        </div>
                     {cargoPrevisto && (
                         <div className="resultado">
-                            <h3>Você tem uma grande vocação para atuar no cargo de :</h3>
-                            <p>{cargoPrevisto} !</p>
+                            <h3>Você tem uma grande vocação para atuar no cargo de : {cargoPrevisto} ! </h3>
                         </div>
                     )}
                 </div>
