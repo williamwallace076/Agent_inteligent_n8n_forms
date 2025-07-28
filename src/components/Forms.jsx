@@ -30,7 +30,7 @@ const Forms = () => {
                 cloud_preferida: data.cloudPreferida
             };
 
-            const response = await axios.post('https://9e6b983a59c3.ngrok-free.app/webhook-test/previsao', payload);
+            const response = await axios.post('https://NOSSO_WEBHOOK_N8N.com', payload);
             setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
         }   catch (error) {
             console.error('Erro ao enviar os dados', error);
@@ -190,8 +190,7 @@ const Forms = () => {
 
                     {cargoPrevisto && (
                         <div className="resultado">
-                            <h3>Cargo previsto:</h3>
-                            <p>{cargoPrevisto}</p>
+                            <h3>Você tem uma grande vocação para atuar no cargo de : {cargoPrevisto} ! </h3>
                         </div>
                     )}
                 </div>
