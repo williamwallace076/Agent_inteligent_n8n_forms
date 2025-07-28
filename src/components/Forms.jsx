@@ -30,9 +30,9 @@ const Forms = () => {
                 cloud_preferida: data.cloudPreferida
             };
 
-            const response = await axios.post('https://NOSSO_WEBHOOK_N8N.com', payload);
+            const response = await axios.post('https://9e6b983a59c3.ngrok-free.app/webhook-test/previsao', payload);
             setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
-        } catch (error) {
+        }   catch (error) {
             console.error('Erro ao enviar os dados', error);
             alert('Erro ao prever o cargo. Verifique o console.')
         }
