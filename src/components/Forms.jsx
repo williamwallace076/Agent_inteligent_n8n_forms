@@ -30,7 +30,7 @@ const Forms = () => {
                 cloud_preferida: data.cloudPreferida
             };
 
-            const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook/previsao', payload);
+            const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', payload);
             setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
         } catch (error) {
             console.error('Erro ao enviar os dados', error);
