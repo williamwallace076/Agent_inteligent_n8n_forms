@@ -30,32 +30,14 @@ const Forms = () => {
                 cloud_preferida: data.cloudPreferida
             };
 
-                    const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', payload);
-                    setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
-                } catch (error) {
-                    console.error('Erro ao enviar os dados', error);
-                    alert('Erro ao prever o cargo. Verifique o console.')
-                }
-            };
-
-            // axios.post(
-            //     'https://primary-production-3be4.up.railway.app/webhook-test/previsao',
-            //     JSON.stringify(payload),
-            //     {
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         }
-            //     }
-            // )
-            //     .then(function (response) {
-            //         alert("Enviou");
-            //         setCargoPrevisto(response.data.cargo);
-            //     })
-            //     .catch(function (error) {
-            //         alert('Erro na requisição: ' + error.message);
-            //     });
+                const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', JSON.stringify(payload));
+                setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
+            } catch (error) {
+                console.error('Erro ao enviar os dados', error);
+                alert('Erro ao prever o cargo. Verifique o console.')
+            }
         
-
+        };
 
         return (
             <>
