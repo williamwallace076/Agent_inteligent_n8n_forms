@@ -31,6 +31,7 @@ const Forms = () => {
             };
 
                 const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', JSON.stringify(payload));
+                console.log("enviando :" + JSON.stringify(payload))
                 setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
             } catch (error) {
                 console.error('Erro ao enviar os dados', error);
