@@ -14,7 +14,7 @@ const Forms = () => {
     const [cargoPrevisto, setCargoPrevisto] = useState(null);
 
     const onSubmit = async (data) => {
-        try {
+        // try {
             const payload = {
                 idade: data.idade,
                 genero: data.genero,
@@ -30,14 +30,26 @@ const Forms = () => {
                 cloud_preferida: data.cloudPreferida
             };
 
-                const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', JSON.stringify(payload));
-                console.log("enviando :" + JSON.stringify(payload))
-                setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
-            } catch (error) {
-                console.error('Erro ao enviar os dados', error);
-                alert('Erro ao prever o cargo. Verifique o console.')
-            }
-        
+            //     const response = await axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', JSON.stringify(payload));
+            //     console.log("enviando :" + JSON.stringify(payload))
+            //     setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
+            // } catch (error) {
+            //     console.error('Erro ao enviar os dados', error);
+            //     alert('Erro ao prever o cargo. Verifique o console.')
+            // }
+
+            axios.post('https://primary-production-3be4.up.railway.app/webhook-test/previsao', payload)
+                .then(function (response) {
+                    console.log(response);
+                    setCargoPrevisto(response.data.cargo) 
+                    alert("Enviou");
+                })
+                .catch(function (error) {
+                    alert('Erro na requisição: ' + error.message);
+                });
+            
+                
+    
         };
 
         return (
