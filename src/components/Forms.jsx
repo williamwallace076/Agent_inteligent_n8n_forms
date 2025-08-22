@@ -35,9 +35,11 @@ const Forms = () => {
                     payload,
                     { headers: {"Content-Type": "application/json" } }
                 );
-                console.log("enviando :" +  payload)
+                console.log("enviando :",  payload)
+                console.log("resposta completa :", response.data);
+            
                 setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
-                console.log("O cargo previsto é : " + response.data.cargo)
+                console.log("O cargo previsto é : ", response.data.cargo)
             } catch (error) {
                 console.error('Erro ao enviar os dados', error);
                 alert('Erro ao prever o cargo. Verifique o console.')
