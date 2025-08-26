@@ -1,5 +1,5 @@
 /* Estilos Globais e de Página */
-.page-container {
+.page-container-result {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, #ffffff 0%, #d1e9f3 100%);
@@ -12,119 +12,70 @@
   box-sizing: border-box;
 }
 
-.main-content-form {
+.main-content-result {
   width: 100%;
-  max-width: 64rem; /* 1024px */
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  max-width: 32rem; /* 512px */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
 
-@media (min-width: 1024px) {
-  .main-content-form {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Container do Formulário */
-.form-container {
+/* Card de Resultado */
+.result-card {
+  margin-top: 8rem; /* Espaço para o balão de fala do robô */
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
-.form-title {
-  font-size: 2rem;
+.result-title {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #1f2937;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.form-subtitle {
-  color: #4b5563;
-  margin-bottom: 2rem;
-  text-align: center;
+.result-error-text {
+  color: #b91c1c;
+  font-size: 1.125rem;
 }
 
-.form-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Estilos dos Campos do Formulário */
-.form-label {
-  display: block;
+.result-text {
   color: #374151;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
 }
 
-.form-input {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #f3f4f6;
-  border: 2px solid #e5e7eb;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  background-color: white;
-}
-
-.form-error {
-  color: #ef4444;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+.result-cargo {
+  color: #1d4ed8;
+  display: block;
+  font-size: 1.875rem;
+  margin-top: 0.5rem;
 }
 
 /* Botão */
-.form-button {
-  width: 100%;
+.result-button {
+  margin-top: 2rem;
   background-color: #2563eb;
   color: white;
   font-weight: bold;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.form-button:hover {
+.result-button:hover {
   background-color: #1d4ed8;
 }
 
-.form-button:disabled {
-  background-color: #9ca3af;
-  cursor: not-allowed;
-}
-
-/* Container do Robô */
-.robot-container-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  order: -1; /* Robô aparece primeiro em telas pequenas */
-}
-
-@media (min-width: 1024px) {
-  .robot-container-form {
-    order: 1; /* Robô volta para a direita em telas grandes */
-  }
-}
-
-/* Footer */
+/* Footer (pode ser reutilizado do Form.css se você criar um CSS global) */
 .footer {
   width: 100%;
   text-align: center;

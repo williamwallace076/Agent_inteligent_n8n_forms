@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Resultado from './pages/Resultado';
 
-import Forms from './components/Forms'
-
-function App() {
-
+export default function App() {
   return (
-    <Forms></Forms>
-  )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/resultado" element={<Resultado />} />
+      </Routes>
+  );
 }
-
-export default App
