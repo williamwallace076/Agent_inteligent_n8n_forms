@@ -31,15 +31,17 @@ const Forms = () => {
             };
 
                 const response = await axios.post(
-                    'https://primary-production-3be4.up.railway.app/webhook-test/previsao', 
+                    'https://primary-production-3be4.up.railway.app/webhook/previsao', 
                     payload,
                     { headers: {"Content-Type": "application/json" } }
                 );
                 console.log("enviando :",  payload)
-                console.log("resposta completa :", response.data);
-            
-                setCargoPrevisto(response.data.cargo) // cargo retornado pelo agente 
-                console.log("O cargo previsto é : ", response.data.cargo)
+                const cargo = response.data?.cargo_previsto || 'Cargo não informado';
+
+                console.log("resposta completa :", cargo);
+
+                setCargoPrevisto(cargo) // cargo retornado pelo agente 
+                console.log("O cargo previsto é : ", cargo)
             } catch (error) {
                 console.error('Erro ao enviar os dados', error);
                 alert('Erro ao prever o cargo. Verifique o console.')
@@ -48,13 +50,14 @@ const Forms = () => {
     
         };
 
+        
+
         return (
             <>
                 <section className='header-section'>
 
                     <div className='title-area'>
                         <h1 >Descubra qual cargo combina melhor com você !</h1>
-
                     </div>
 
                 </section>
