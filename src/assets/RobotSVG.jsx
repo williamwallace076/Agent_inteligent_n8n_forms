@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-// Funções auxiliares para o componente RobotSVG
+
 const shade = (hex, percent) => {
   const f = parseInt(hex.slice(1), 16);
   const t = percent < 0 ? 0 : 255;
@@ -29,7 +29,6 @@ const progressFor = (expr) => {
   return progressMap[expr] || 50;
 };
 
-// Componente RobotSVG
 export default function RobotSVG({ expression = "neutral", speak = "", color = "#4f80ff", size = 260, blink = true }) {
   const [isBlinking, setIsBlinking] = useState(false);
   const blinkTimer = useRef(null);
@@ -72,7 +71,7 @@ export default function RobotSVG({ expression = "neutral", speak = "", color = "
   const isWink = expression === "wink";
 
   return (
-    <div style={{ position: "relative", width: size, height: size, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+<div style={{width: size }}>
       {speak && (
         <div
           aria-live="polite"

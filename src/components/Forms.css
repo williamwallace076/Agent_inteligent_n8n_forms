@@ -1,5 +1,6 @@
 /* Estilos Globais e de Página */
 .page-container {
+  min-width: 650px;
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, #ffffff 0%, #d1e9f3 100%);
@@ -14,7 +15,7 @@
 
 .main-content-form {
   width: 100%;
-  max-width: 64rem; /* 1024px */
+  max-width: 64rem; 
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr;
@@ -115,8 +116,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 24rem;
   order: -1; /* Robô aparece primeiro em telas pequenas */
 }
+
 
 @media (min-width: 1024px) {
   .robot-container-form {

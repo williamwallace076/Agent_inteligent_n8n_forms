@@ -218,7 +218,7 @@ export default function Form() {
                 className="form-input"
                 placeholder=''
                 onInput={() => setRobotExpression("thinking")} />
-              {errors.linguagensPreferidas && <p className="form-error">Campo obrigatório.</p>}
+              {errors?.linguagensPreferidas?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <div>
@@ -226,7 +226,7 @@ export default function Form() {
                 {...register("bancoDados", { required: true })}
                 className="form-input"
                 onInput={() => setRobotExpression("thinking")} />
-              {errors.bancoDados && <p className="form-error">Campo obrigatório.</p>}
+              {errors?.bancoDados?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <div>
@@ -234,7 +234,7 @@ export default function Form() {
               <input type="text" {...register("cloudPreferida", { required: true })}
                 className="form-input"
                 onInput={() => setRobotExpression("thinking")} />
-              {errors.cloudPreferida && <p className="form-error">Campo obrigatório.</p>}
+              {errors?.cloudPreferida?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <button type="submit" disabled={isLoading} className="form-button">
@@ -242,6 +242,7 @@ export default function Form() {
             </button>
           </form>
         </div>
+        
         <div className="robot-container-form">
           <RobotSVG
             expression={robotExpression}
