@@ -81,16 +81,14 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="form-label">Gênero</label>
-              <select
-                {...register("genero", { required: true })}
-                className="form-input"
-                onInput={() => setRobotExpression("thinking")}>
-                <option value="">Selecione...</option>
+              <label>Gênero:</label>
+              <select name="genero" {...register("genero", { required: true })}>
+                <option value="">Escolha</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Feminino">Feminino</option>
+                <option value="">Prefiro não informar</option>
               </select>
-              {errors.genero && <p className="form-error">Campo obrigatório.</p>}
+              {errors?.genero?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
             </div>
 
             <div>
@@ -123,52 +121,52 @@ export default function Form() {
             <div>
               <label className="form-label">Vive no Brasil</label>
               <select {...register("viveBrasil", { required: true })}
-                className="form-input"    
+                className="form-input"
                 onInput={() => setRobotExpression("thinking")}>
                 <option value="">Selecione...</option>
-                <option value="Sim">Sim</option>
-                <option value="Não">Não</option>
+                <option value="TRUE">Sim</option>
+                <option value="FALSE">Não</option>
               </select>
               {errors?.viveBrasil?.type === "required" && (<p className='form-error'>Campo obrigatório</p>)}
             </div>
 
             {viveBrasilValue === 'Sim' && (
-            <div>
-              <label className="form-label">Estado de Moradia</label>
-              <select {...register("estadoMoradia", { required: true })}
-                className="form-input"
-                onInput={() => setRobotExpression("thinking")} >
-                <option value="">Escolha...</option>
-                <option value="Acre (AC)">Acre (AC)</option>
-                <option value="Alagoas (AL)">Alagoas (AL)</option>
-                <option value="Amapá (AP)">Amapá (AP)</option>
-                <option value="Amazonas (AM)">Amazonas (AM)</option>
-                <option value="Bahia (BA)">Bahia (BA)</option>
-                <option value="Ceará (CE)">Ceará (CE)</option>
-                <option value="Distrito Federal (DF)">Distrito Federal (DF)</option>
-                <option value="Espírito Santo (ES)">Espírito Santo (ES)</option>
-                <option value="Goiás (GO)">Goiás (GO)</option>
-                <option value="Maranhão (MA)">Maranhão (MA)</option>
-                <option value="Mato Grosso (MT)">Mato Grosso (MT)</option>
-                <option value="Mato Grosso do Sul (MS)">Mato Grosso do Sul (MS)</option>
-                <option value="Minas Gerais (MG)">Minas Gerais (MG)</option>
-                <option value="Pará (PA)">Pará (PA)</option>
-                <option value="Paraíba (PB)">Paraíba (PB)</option>
-                <option value="Paraná (PR)">Paraná (PR)</option>
-                <option value="Pernambuco (PE)">Pernambuco (PE)</option>
-                <option value="Piauí (PI)">Piauí (PI)</option>
-                <option value="Rio de Janeiro (RJ)">Rio de Janeiro (RJ)</option>
-                <option value="Rio Grande do Norte (RN)">Rio Grande do Norte (RN)</option>
-                <option value="Rio Grande do Sul (RS)">Rio Grande do Sul (RS)</option>
-                <option value="Rondônia (RO)">Rondônia (RO)</option>
-                <option value="Roraima (RR)">Roraima (RR)</option>
-                <option value="Santa Catarina (SC)">Santa Catarina (SC)</option>
-                <option value="São Paulo (SP)">São Paulo (SP)</option>
-                <option value="Sergipe (SE)">Sergipe (SE)</option>
-                <option value="Tocantins (TO)">Tocantins (TO)</option>
-              </select>
-              {errors?.estadoMoradia?.type === "required" && (<p className='form-error'>Campo obrigatório</p>)}
-            </div>
+              <div>
+                <label className="form-label">Estado de Moradia</label>
+                <select {...register("estadoMoradia", { required: true })}
+                  className="form-input"
+                  onInput={() => setRobotExpression("thinking")} >
+                  <option value="">Escolha...</option>
+                  <option value="Acre (AC)">Acre (AC)</option>
+                  <option value="Alagoas (AL)">Alagoas (AL)</option>
+                  <option value="Amapá (AP)">Amapá (AP)</option>
+                  <option value="Amazonas (AM)">Amazonas (AM)</option>
+                  <option value="Bahia (BA)">Bahia (BA)</option>
+                  <option value="Ceará (CE)">Ceará (CE)</option>
+                  <option value="Distrito Federal (DF)">Distrito Federal (DF)</option>
+                  <option value="Espírito Santo (ES)">Espírito Santo (ES)</option>
+                  <option value="Goiás (GO)">Goiás (GO)</option>
+                  <option value="Maranhão (MA)">Maranhão (MA)</option>
+                  <option value="Mato Grosso (MT)">Mato Grosso (MT)</option>
+                  <option value="Mato Grosso do Sul (MS)">Mato Grosso do Sul (MS)</option>
+                  <option value="Minas Gerais (MG)">Minas Gerais (MG)</option>
+                  <option value="Pará (PA)">Pará (PA)</option>
+                  <option value="Paraíba (PB)">Paraíba (PB)</option>
+                  <option value="Paraná (PR)">Paraná (PR)</option>
+                  <option value="Pernambuco (PE)">Pernambuco (PE)</option>
+                  <option value="Piauí (PI)">Piauí (PI)</option>
+                  <option value="Rio de Janeiro (RJ)">Rio de Janeiro (RJ)</option>
+                  <option value="Rio Grande do Norte (RN)">Rio Grande do Norte (RN)</option>
+                  <option value="Rio Grande do Sul (RS)">Rio Grande do Sul (RS)</option>
+                  <option value="Rondônia (RO)">Rondônia (RO)</option>
+                  <option value="Roraima (RR)">Roraima (RR)</option>
+                  <option value="Santa Catarina (SC)">Santa Catarina (SC)</option>
+                  <option value="São Paulo (SP)">São Paulo (SP)</option>
+                  <option value="Sergipe (SE)">Sergipe (SE)</option>
+                  <option value="Tocantins (TO)">Tocantins (TO)</option>
+                </select>
+                {errors?.estadoMoradia?.type === "required" && (<p className='form-error'>Campo obrigatório</p>)}
+              </div>
             )}
             <div>
               <label className="form-label">Nível de Ensino</label>
@@ -220,13 +218,18 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="form-label">Linguagens Preferidas</label>
-              <input type="text"
-                {...register("linguagensPreferidas", { required: true })}
-                className="form-input"
-                placeholder=''
-                onInput={() => setRobotExpression("thinking")} />
-              {errors?.linguagensPreferidas?.type === "required" && (<p className="form-error">Campo obrigatório.</p>)}
+              <label>Linguagem Preferida (ex: Python, R):</label>
+              <select name="linguagens_preferidas" {...register("linguagensPreferidas", { required: true })}>
+                <option value="">Escolha</option>
+                <option value="Python">Python</option>
+                <option value="R">R</option>
+                <option value="Scala">Scala</option>
+                <option value="SQL">SQL</option>
+                <option value="C/C++/C#">C/C++/C#</option>
+                <option value="Julia">Julia</option>
+                <option value="Javascript">Javascript</option>
+              </select>
+              {errors?.linguagensPreferidas?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
             </div>
 
             <div>
@@ -238,11 +241,16 @@ export default function Form() {
             </div>
 
             <div>
-              <label className="form-label">Cloud Preferida</label>
-              <input type="text" {...register("cloudPreferida", { required: true })}
-                className="form-input"
-                onInput={() => setRobotExpression("thinking")} />
-              {errors?.cloudPreferida?.type === "required" && (<p className="form-error">Campo obrigatório.</p>)}
+              <label>Cloud Preferida:</label>
+              <select name="cloud_preferida" {...register("cloudPreferida", { required: true })}>
+                <option value="">Escolha</option>
+                <option value="Amazon Web Services (AWS)">Amazon Web Services (AWS)</option>
+                <option value="Azure (Microsoft)">Azure (Microsoft)</option>
+                <option value="Google Cloud (GCP)">Google Cloud (GCP)</option>
+                <option value="Outra Cloud">Outra Cloud</option>
+                <option value="Não sei opinar">Não sei opinar</option>
+              </select>
+              {errors?.cloudPreferida?.type === "required" && (<p className='error-message'>Campo obrigatório</p>)}
             </div>
 
             <button type="submit" disabled={isLoading} className="form-button">
