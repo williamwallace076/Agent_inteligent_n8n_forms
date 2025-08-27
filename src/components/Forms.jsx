@@ -6,11 +6,18 @@ import RobotSVG from '../assets/RobotSVG';
 import './Forms.css';
 
 export default function Form() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, watch } = useForm({
+    defaultValues: {
+      viveBrasil: "Sim"
+    }
+  });
+
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
   const [robotExpression, setRobotExpression] = useState("neutral");
+
+  const viveBrasilValue = watch("viveBrasil", "Sim");
 
   const onSubmit = async (data) => {
     setIsLoading(true);
@@ -22,7 +29,7 @@ export default function Form() {
       etnia: data.etnia,
       pcd: data.pcd,
       vive_no_brasil: data.viveBrasil,
-      estado_moradia: data.estadoMoradia,
+      estado_moradia: data.viveBrasil === 'Sim' ? data.estadoMoradia : ' ',
       nivel_ensino: data.nivelEnsino,
       formacao: data.formacao,
       tempo_experiencia_dados: data.experienciaDados,
@@ -116,21 +123,22 @@ export default function Form() {
             <div>
               <label className="form-label">Vive no Brasil</label>
               <select {...register("viveBrasil", { required: true })}
-                className="form-input"
+                className="form-input"    
                 onInput={() => setRobotExpression("thinking")}>
-                <option value="">Selecione...</option><option value="Sim">Sim</option>
+                <option value="">Selecione...</option>
+                <option value="Sim">Sim</option>
                 <option value="Não">Não</option>
               </select>
               {errors?.viveBrasil?.type === "required" && (<p className='form-error'>Campo obrigatório</p>)}
             </div>
 
+            {viveBrasilValue === 'Sim' && (
             <div>
               <label className="form-label">Estado de Moradia</label>
               <select {...register("estadoMoradia", { required: true })}
-                name="estado_moradia"
                 className="form-input"
                 onInput={() => setRobotExpression("thinking")} >
-                <option value="">Escolha</option>
+                <option value="">Escolha...</option>
                 <option value="Acre (AC)">Acre (AC)</option>
                 <option value="Alagoas (AL)">Alagoas (AL)</option>
                 <option value="Amapá (AP)">Amapá (AP)</option>
@@ -161,7 +169,7 @@ export default function Form() {
               </select>
               {errors?.estadoMoradia?.type === "required" && (<p className='form-error'>Campo obrigatório</p>)}
             </div>
-
+            )}
             <div>
               <label className="form-label">Nível de Ensino</label>
               <select name="nivel_ensino" {...register("nivelEnsino", { required: true })}
@@ -213,12 +221,12 @@ export default function Form() {
 
             <div>
               <label className="form-label">Linguagens Preferidas</label>
-              <input type="text" 
-              {...register("linguagensPreferidas", { required: true })}
+              <input type="text"
+                {...register("linguagensPreferidas", { required: true })}
                 className="form-input"
                 placeholder=''
                 onInput={() => setRobotExpression("thinking")} />
-              {errors?.linguagensPreferidas?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
+              {errors?.linguagensPreferidas?.type === "required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <div>
@@ -226,7 +234,7 @@ export default function Form() {
                 {...register("bancoDados", { required: true })}
                 className="form-input"
                 onInput={() => setRobotExpression("thinking")} />
-              {errors?.bancoDados?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
+              {errors?.bancoDados?.type === "required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <div>
@@ -234,7 +242,7 @@ export default function Form() {
               <input type="text" {...register("cloudPreferida", { required: true })}
                 className="form-input"
                 onInput={() => setRobotExpression("thinking")} />
-              {errors?.cloudPreferida?.type ==="required" && (<p className="form-error">Campo obrigatório.</p>)}
+              {errors?.cloudPreferida?.type === "required" && (<p className="form-error">Campo obrigatório.</p>)}
             </div>
 
             <button type="submit" disabled={isLoading} className="form-button">
@@ -242,7 +250,7 @@ export default function Form() {
             </button>
           </form>
         </div>
-        
+
         <div className="robot-container-form">
           <RobotSVG
             expression={robotExpression}

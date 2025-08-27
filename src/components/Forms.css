@@ -118,11 +118,14 @@
   align-items: center;
   width: 24rem;
   order: -1; /* Robô aparece primeiro em telas pequenas */
+  align-self: center;
+  justify-self: center;
 }
 
 
 @media (min-width: 1024px) {
   .robot-container-form {
+    margin-bottom: 48rem;
     order: 1; /* Robô volta para a direita em telas grandes */
   }
 }
