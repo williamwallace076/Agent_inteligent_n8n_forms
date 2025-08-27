@@ -1,4 +1,17 @@
-/* Estilos Globais e de Página */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .page-container-result {
   min-height: 100vh;
   width: 100%;
@@ -14,7 +27,8 @@
 
 .main-content-result {
   width: 100%;
-  max-width: 32rem; /* 512px */
+  max-width: 32rem;
+  /* 512px */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -25,7 +39,7 @@
 
 /* Card de Resultado */
 .result-card {
-  margin-top: 8rem; /* Espaço para o balão de fala do robô */
+
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
   padding: 2rem;
@@ -98,6 +112,7 @@
   padding: 1rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
+  animation: floatAnimation 3s ease-in-out infinite;
 }
 
 .speech-bubble-arrow {
@@ -111,4 +126,13 @@
   border-right: 15px solid transparent;
   border-top: 15px solid white;
   filter: drop-shadow(0 1px 0 #e5e7eb);
+}
+
+.result-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
 }

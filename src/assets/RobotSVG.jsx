@@ -15,9 +15,9 @@ const shade = (hex, percent) => {
 const eyebrowPath = (side, expression) => {
   const offset = side === "left" ? -25 : 25;
   switch (expression) {
-    case "happy": return `M${offset - 10},-62 Q${offset},-68 ${offset + 10},-62`;
+    case "happy": return `M${offset - 12},-62 Q${offset},-68 ${offset + 12},-62`;
     case "sad": return `M${offset - 10},-58 Q${offset},-52 ${offset + 10},-58`;
-    case "thinking": return side === "left" ? `M${offset - 10},-62 Q${offset},-56 ${offset + 10},-60` : `M${offset - 10},-56 Q${offset},-64 ${offset + 10},-58`;
+    case "thinking": return side === "left" ? `M${offset - 10},-60 Q${offset},-70 ${offset + 15},-60` : `M${offset - 20},-60 Q${offset}, -65 ${offset + 10},-62`;
     case "surprised": return `M${offset - 10},-70 Q${offset},-76 ${offset + 10},-70`;
     case "wink": return side === "left" ? `M${offset - 10},-48 Q${offset},-48 ${offset + 10},-48` : `M${offset - 10},-62 Q${offset},-66 ${offset + 10},-62`;
     default: return `M${offset - 10},-60 Q${offset},-62 ${offset + 10},-60`;
@@ -58,10 +58,10 @@ export default function RobotSVG({ expression = "neutral", speak = "", color = "
 
   const mouthPath = useMemo(() => {
     const paths = {
-      happy: "M-35,15 Q0,45 35,15",
+      happy: "M-25,-25 Q0, -8 25, -25",
       sad: "M-35,30 Q0,0 35,30",
-      thinking: "M-25,20 Q0,10 25,20",
-      neutral: "M-28,22 Q0,26 28,22",
+      thinking: "M-20,-20 Q19, -20 15,-25",
+      neutral: "M-22,-21 Q10, -20 20,-22",
       wink: "M-28,22 Q0,26 28,22",
     };
     return paths[expression] || paths.neutral;
@@ -112,7 +112,7 @@ export default function RobotSVG({ expression = "neutral", speak = "", color = "
           {isSurprised ? (
             <circle cx="0" cy="-20" r="10" fill="#9dd7ff" />
           ) : (
-            <path d={mouthPath} fill="none" stroke="#9dd7ff" strokeWidth="6" strokeLinecap="round" />
+            <path d={mouthPath} fill="none" stroke="#9dd7ff" strokeWidth="5" strokeLinecap="round" />
           )}
         </g>
         <g>

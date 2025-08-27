@@ -1,6 +1,5 @@
 /* Estilos Globais e de Página */
 .page-container {
-  min-width: 650px;
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, #ffffff 0%, #d1e9f3 100%);
@@ -15,7 +14,8 @@
 
 .main-content-form {
   width: 100%;
-  max-width: 64rem; 
+  max-width: 64rem;
+  /* 1024px */
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr;
@@ -24,9 +24,20 @@
   justify-content: center;
 }
 
+/* --- ALTERAÇÕES PARA DESKTOP --- */
 @media (min-width: 1024px) {
   .main-content-form {
     grid-template-columns: 1fr 1fr;
+    /* Alinha os itens no topo, o que é crucial para o position: sticky funcionar corretamente. */
+    align-items: flex-start;
+  }
+
+  .robot-container-form {
+    order: 1;
+    /* Robô volta para a direita em telas grandes */
+    /* Faz com que o container do robô "grude" na tela a 100px do topo ao fazer scroll. */
+    position: sticky;
+    top: 100px;
   }
 }
 
@@ -116,18 +127,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24rem;
-  order: -1; /* Robô aparece primeiro em telas pequenas */
-  align-self: center;
-  justify-self: center;
-}
-
-
-@media (min-width: 1024px) {
-  .robot-container-form {
-    margin-bottom: 48rem;
-    order: 1; /* Robô volta para a direita em telas grandes */
-  }
+  order: -1;
+  /* Robô aparece primeiro em telas pequenas */
 }
 
 /* Footer */
@@ -140,7 +141,22 @@
   font-size: 0.875rem;
 }
 
-/* Estilos para o balão de fala (reutilizado do RobotSVG) */
+/* Animação para o balão de fala */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para o balão de fala */
 .speech-bubble {
   position: absolute;
   bottom: 100%;
@@ -153,6 +169,7 @@
   padding: 1rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
+  animation: floatAnimation 3s ease-in-out infinite;
 }
 
 .speech-bubble-arrow {
