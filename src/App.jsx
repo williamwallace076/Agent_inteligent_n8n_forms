@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Resultado from './pages/Resultado';
+import {Routes, Route } from 'react-router-dom';
+import Forms from './components/Forms';
+import Resultado from './components/Resultado';
 
 export default function App() {
   return (
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Forms />} />
         <Route path="/resultado" element={<Resultado />} />
       </Routes>
   );

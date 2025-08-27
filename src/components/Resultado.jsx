@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import RobotSVG from '../components/RobotSVG';
+import RobotSVG from '../assets/RobotSVG';
 import './Resultado.css';
 
 export default function Resultado() {

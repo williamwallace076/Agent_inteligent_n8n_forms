@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import RobotSVG from '../components/RobotSVG';
-import './Home.css';
+import RobotSVG from '../assets/RobotSVG';
+import './Forms.css';
 
 export default function Form() {
   const { register, handleSubmit, formState: { errors } } = useForm();
