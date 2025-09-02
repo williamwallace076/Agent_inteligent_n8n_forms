@@ -62,7 +62,7 @@ export default function Form() {
 
     try {
       const response = await axios.post(
-        "https://primary-production-bd64.up.railway.app/webhook-test/previsao",
+        "https://primary-production-bd64.up.railway.app/webhook/previsao",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
