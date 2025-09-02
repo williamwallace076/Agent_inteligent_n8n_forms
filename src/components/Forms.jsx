@@ -85,6 +85,8 @@ export default function Form() {
       return texto || "Cargo não encontrado";
     }
 
+    const textoLimpo = texto.replace(/\s+/g, '');
+
     // Dicionário robusto criado a partir da análise do seu ficheiro CSV.
     // Todas as palavras estão em minúsculas para uma correspondência case-insensitive.
     const palavras = [
@@ -99,7 +101,7 @@ export default function Form() {
     ].sort((a, b) => b.length - a.length); // Ordena da mais longa para a mais curta.
 
     let resultado = [];
-    let textoRestante = texto;
+    let textoRestante = textoLimpo;
 
     while (textoRestante.length > 0) {
       let encontrouPalavra = false;
