@@ -4,7 +4,7 @@ import RobotSVG from '../assets/RobotSVG';
 import './Resultado.css';
 
 const descricoesCargos = {
-  'educação e suporte técnico': 'Uma área focada em ensinar utilizadores a usar tecnologias e a resolver problemas técnicos, combinando competências de ensino com conhecimento técnico.',
+  'educação e suporte tecnico': 'Uma área focada em ensinar utilizadores a usar tecnologias e a resolver problemas técnicos, combinando competências de ensino com conhecimento técnico.',
   'engenharia de software': 'A disciplina focada em projetar, desenvolver e manter sistemas de software de alta qualidade, aplicando princípios de engenharia para criar soluções robustas e eficientes.',
   'analise e estrategia': 'Focado em analisar o cenário atual e futuro para definir os melhores caminhos e planos de ação que guiarão o sucesso da organização.',
   'cientista de dados': 'Usa métodos científicos e algoritmos para extrair conhecimento e insights valiosos de dados complexos.',
