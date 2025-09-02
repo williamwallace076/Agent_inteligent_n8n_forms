@@ -90,7 +90,7 @@ export default function Form() {
     const palavras = [
       "administrador", "analista", "analise", "analytics", "architect", "arquiteto", "banco",
       "business", "bi", "cientista", "ciencia", "coordenador", "dados", "data", "de",
-      "desenvolvedor", "dev", "dba", "dpm", "e", "engineer", "engenheiro",
+      "desenvolvedor", "dev", "dba", "dpm", "e", "engineer", "engenheiro", "educacao",
       "engenharias","engenharia", "estatistica", "estrategia", "gpm", "inclui", "intelligence", "inteligencia",
       "learning", "machine", "manager", "market", "marketing", "mercado", "ml", "nao",
       "negocios", "opcao", "outra", "outras", "owner", "pm", "po", "product",
